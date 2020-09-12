@@ -1,9 +1,9 @@
 ﻿# FLibraryCollection(FLC)
 ## Version Numbering
-[major].[minor].[patch]
-The patch number changes if one of the library's get updated or new features
-The minor number changes when there is a new library
-And when the major number changes is at this point in time unclear
+[major].[minor].[patch]<div style="page-break-after: always;"></div>
+The patch number changes if one of the library's get updated or new features<div style="page-break-after: always;"></div>
+The minor number changes when there is a new library<div style="page-break-after: always;"></div>
+And when the major number changes is at this point in time unclear<div style="page-break-after: always;"></div>
 ## Library's
 
  1. FLogger (An simple Logging Library)
