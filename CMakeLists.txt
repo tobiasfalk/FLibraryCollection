@@ -15,7 +15,6 @@ add_library(FLibraryCollection SHARED
 
 configure_file(Version.h.in Version.h)
 
-
 option(BUILD_DOC "Build documentation" ON)
 if(BUILD_DOC)
     find_package(Doxygen)
@@ -39,3 +38,4 @@ install(FILES FLibraryCollection.h DESTINATION include/FLibraryCollection)
 install(FILES ${CMAKE_BINARY_DIR}/Version.h DESTINATION include/FLibraryCollection)
 
 target_compile_definitions(FLibraryCollection PRIVATE FLIBRARYCOLLECTION_LIBRARY)
+

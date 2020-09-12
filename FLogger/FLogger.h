@@ -15,7 +15,7 @@ namespace FLogger
 {
 
 ///
-/// \brief The FLogger class
+/// \brief The Logger class
 ///
 /// Dat Time Formate: YYYY-MM-DD|HH:mm:ss
 ///
