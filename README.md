@@ -10,6 +10,3 @@ And when the major number changes is at this point in time unclear
  2. FQLogger (The same as FLogger but with QT Strings)
 
 ![The logo is from Annalise Batista at Pixabay](/Logo/eagle-silhouette-161x289.png)
-
-Bild von Annalise Batista auf Pixabay
-
