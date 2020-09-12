@@ -14,8 +14,4 @@ add_library(FLogger SHARED
 target_compile_definitions(FLogger PRIVATE FLOGGER_LIBRARY)
 
 install(TARGETS FLogger DESTINATION lib)
-install(FILES FLogger.h DESTINATION include/FLibraryCollection)
-
-if(install)
-    execute_process(COMMAND ldconfig -l /usr/local/lib/libFLibraryCollection.so)
-endif()
+install(FILES FLogger.h DESTINATION include/FLibraryCollection/FLogger)
