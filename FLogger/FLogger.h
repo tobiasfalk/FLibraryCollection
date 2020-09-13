@@ -11,6 +11,9 @@
 #include <chrono>
 #include <ctime>
 
+///
+/// The FLogger namespace is where all the FLogger things are
+///
 namespace FLogger
 {
 

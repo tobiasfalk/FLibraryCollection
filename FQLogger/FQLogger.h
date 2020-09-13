@@ -9,6 +9,9 @@
 
 #include "FQLogger_global.h"
 
+///
+/// The FQLogger namespace is where all the QFLogger things are
+///
 namespace FQLogger
 {
 
