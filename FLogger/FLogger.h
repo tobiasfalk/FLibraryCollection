@@ -22,6 +22,7 @@ namespace FLogger
 ///
 /// Dat Time Formate: YYYY-MM-DD|HH:mm:ss
 ///
+///
 class Logger
 {
 public:
