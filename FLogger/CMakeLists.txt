@@ -11,6 +11,7 @@ add_library(FLogger SHARED
   FLogger.h
 )
 
+
 target_compile_definitions(FLogger PRIVATE FLOGGER_LIBRARY)
 
 install(TARGETS FLogger DESTINATION lib)

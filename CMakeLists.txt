@@ -10,13 +10,6 @@ add_subdirectory(FLogger)
 add_subdirectory(FQLogger)
 #add_subdirectory(FHammingCode)
 
-add_library(FLibraryCollection SHARED
-  FLibraryCollection.cpp
-  FLibraryCollection.h
-)
-
-configure_file(Version.h.in Version.h)
-
 option(BUILD_DOC "Build documentation" ON)
 if(BUILD_DOC)
     find_package(Doxygen)
@@ -33,7 +26,24 @@ if(BUILD_DOC)
             COMMENT "Building user's documentation into doxyDoc build dir..."
         )
     endif()
+
+    add_custom_target(Documentation
+        SOURCES
+            Doxyfile.in
+            README.md
+            ./doc/Plans.md
+            ./doc/LogoBig.md
+        )
+
 endif()
+
+add_library(FLibraryCollection SHARED
+  FLibraryCollection.cpp
+  FLibraryCollection.h
+)
+
+configure_file(Version.h.in Version.h)
+
 
 install(TARGETS FLibraryCollection DESTINATION lib)
 install(FILES FLibraryCollection.h DESTINATION include/FLibraryCollection)
