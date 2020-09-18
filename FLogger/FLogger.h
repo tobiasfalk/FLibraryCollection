@@ -22,9 +22,9 @@ namespace FLogger
 ///
 /// Dat Time Formate: YYYY-MM-DD|HH:mm:ss
 ///
-///
 class Logger
 {
+
 public:
     ///
     /// \brief Logger the constructor of the class
