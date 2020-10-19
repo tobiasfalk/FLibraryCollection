@@ -1,70 +1,178 @@
 #include "FQLogger.h"
 
-FQLogger::Logger::Logger(QString logName, QString path) : FLogger::Logger(logName.toStdString(), path.toStdString())
+using namespace FQLogger;
+Logger::Logger(QObject *parent) : QObject(parent)
 {
 }
 
-FQLogger::Logger::~Logger()
+Logger::Logger(std::string Log_Name, std::string Path, QObject *parent) : QObject(parent)
 {
-    this->FLogger::Logger::~Logger();
+    logName = Log_Name;
+    path = Path;
 }
 
-void FQLogger::Logger::write(QString text)
+void Logger::write(std::string text)
 {
-    this->FLogger::Logger::write(text.toStdString());
+    text = currentDateTime() + " \t\t" + text;
+    file << text  << std::endl;
+    std::cout << text << std::endl;
 }
 
-void FQLogger::Logger::error(QString text)
+void Logger::error(std::string text)
 {
-    this->FLogger::Logger::error(text.toStdString());
+    text = currentDateTime() + " ERROR \t"  + text;
+    file << text  << std::endl;
+    std::cout << text << std::endl;
 }
 
-void FQLogger::Logger::fatalError(QString text)
+void Logger::fatalError(std::string text)
 {
-    this->FLogger::Logger::fatalError(text.toStdString());
+    text = currentDateTime() + " FATAL \t" + text;
+    file << text  << std::endl;
+    std::cout << text << std::endl;
 }
 
-void FQLogger::Logger::warning(QString text)
+void Logger::warning(std::string text)
 {
-    this->FLogger::Logger::warning(text.toStdString());
+    text = currentDateTime() + " WARNING \t" + text;
+    file << text  << std::endl;
+    std::cout << text << std::endl;
 }
 
-void FQLogger::Logger::info(QString text)
+void Logger::info(std::string text)
 {
-    this->FLogger::Logger::info(text.toStdString());
+    text = currentDateTime() + " INFO \t" + text;
+    file << text  << std::endl;
+    std::cout << text << std::endl;
 }
 
-void FQLogger::Logger::write(QString text, int line, QString codeFile, QString func)
+void Logger::write(std::string text, int line, std::string codeFile, std::string func)
 {
-    this->FLogger::Logger::write(text.toStdString(), line, codeFile.toStdString(), func.toStdString());
+    text = currentDateTime() + " \t\tFile: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func + " " + text;
+    file << text  << std::endl;
+    std::cout << text << std::endl;
 }
 
-void FQLogger::Logger::error(QString text, int line, QString codeFile, QString func)
+void Logger::error(std::string text, int line, std::string codeFile, std::string func)
 {
-    this->FLogger::Logger::error(text.toStdString(), line, codeFile.toStdString(), func.toStdString());
+    text = currentDateTime() + " ERROR \tFile: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func + " " + text ;
+    file << text  << std::endl;
+    std::cout << text << std::endl;
 }
 
-void FQLogger::Logger::fatalError(QString text, int line, QString codeFile, QString func)
+void Logger::fatalError(std::string text, int line, std::string codeFile, std::string func)
 {
-    this->FLogger::Logger::fatalError(text.toStdString(), line, codeFile.toStdString(), func.toStdString());
+    text = currentDateTime()  + " FATAL \tFile: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func + " " + text;
+    file << text  << std::endl;
+    std::cout << text << std::endl;
 }
 
-void FQLogger::Logger::warning(QString text, int line, QString codeFile, QString func)
+void Logger::warning(std::string text, int line, std::string codeFile, std::string func)
 {
-    this->FLogger::Logger::warning(text.toStdString(), line, codeFile.toStdString(), func.toStdString());
+    text = currentDateTime() + " WARNING \tFile: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func + " " + text;
+    file << text  << std::endl;
+    std::cout << text << std::endl;
+    Started = 0;
 }
 
-void FQLogger::Logger::info(QString text, int line, QString codeFile, QString func)
+void Logger::info(std::string text, int line, std::string codeFile, std::string func)
 {
-    this->FLogger::Logger::info(text.toStdString(), line, codeFile.toStdString(), func.toStdString());
+    text = currentDateTime() + " INFO \tFile: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func  + " " + text;
+    file << text  << std::endl;
+    std::cout << text << std::endl;
 }
 
-bool FQLogger::Logger::setStartText(QString text)
+void Logger::setEndText(std::string text)
 {
-    return this->FLogger::Logger::setStartText(text.toStdString());
+    endText = text;
 }
 
-void FQLogger::Logger::setEndText(QString text)
+void Logger::writeToFile(std::string text)
 {
-    this->FLogger::Logger::setEndText(text.toStdString());
+    file << text  << std::endl;
+}
+
+const std::string Logger::currentDateTime() {
+    QDateTime time = QDateTime::currentDateTime();
+    return time.toString(dateFormate).toStdString();
+}
+
+bool Logger::getStarted() const
+{
+    return Started;
+}
+
+void Logger::setStartText(const std::string &value)
+{
+    if(!Started)
+    {
+        StartText = value;
+    }
+}
+
+std::string Logger::getStartText() const
+{
+    return StartText;
+}
+
+std::string Logger::getPath() const
+{
+    return path;
+}
+
+void Logger::setPath(const std::string &value)
+{
+    if(!Started)
+    {
+        path = value;
+    }
+}
+
+std::string Logger::getLogName() const
+{
+    return logName;
+}
+
+void Logger::setLogName(const std::string &value)
+{
+    if(!Started)
+    {
+        logName = value;
+    }
+}
+
+Qt::DateFormat Logger::getDateFormate() const
+{
+    return dateFormate;
+}
+
+void Logger::setDateFormate(const Qt::DateFormat &value)
+{
+    if(!Started)
+    {
+        dateFormate = value;
+    }
+}
+
+
+Logger::~Logger()
+{
+    writeToFile(endText);
+    file.close();
+}
+
+bool Logger::start()
+{
+    std::string time = currentDateTime();
+    std::string fileName = path + time + "-" + logName;
+    if (fileName.size() > 0)
+    {
+        file.open(fileName, std::ios::app);
+        if (!file.good())
+        {
+            std::cout << "Not Open" << std::endl;
+            std::cout << fileName << std::endl;
+        }
+
+    }
 }

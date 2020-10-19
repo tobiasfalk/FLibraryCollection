@@ -3,7 +3,7 @@
 using namespace FLogger;
 Logger::Logger(std::string logName, std::string path)
 {
-    std::string time = this->currentDateTime();
+    std::string time = currentDateTime();
     std::string fileName = path + time + "-" + logName;
     if (fileName.size() > 0)
     {
@@ -19,7 +19,7 @@ Logger::Logger(std::string logName, std::string path)
 
 void Logger::write(std::string text)
 {
-    text = this->currentDateTime() + " " + text;
+    text = currentDateTime() + " \t\t" + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
     StartText = 0;
@@ -27,7 +27,7 @@ void Logger::write(std::string text)
 
 void Logger::error(std::string text)
 {
-    text = "\033[0;31m" + this->currentDateTime() + " "  + text + "\033[0m";
+    text = currentDateTime() + " ERROR \t"  + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
     StartText = 0;
@@ -35,7 +35,7 @@ void Logger::error(std::string text)
 
 void Logger::fatalError(std::string text)
 {
-    text = "\033[1;37;41m" + this->currentDateTime() + " " + text + "\033[0m";
+    text = currentDateTime() + " FATAL \t" + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
     StartText = 0;
@@ -43,7 +43,7 @@ void Logger::fatalError(std::string text)
 
 void Logger::warning(std::string text)
 {
-    text = "\033[1;33m" + this->currentDateTime() + " " + text + "\033[0m";
+    text = currentDateTime() + " WARNING \t" + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
     StartText = 0;
@@ -51,7 +51,7 @@ void Logger::warning(std::string text)
 
 void Logger::info(std::string text)
 {
-    text = "\033[1;36m" + this->currentDateTime() + " " + text + "\033[0m";
+    text = currentDateTime() + " INFO \t" + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
     StartText = 0;
@@ -59,7 +59,7 @@ void Logger::info(std::string text)
 
 void Logger::write(std::string text, int line, std::string codeFile, std::string func)
 {
-    text = this->currentDateTime() + " File: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func + " Write: " + text;
+    text = currentDateTime() + " \t\tFile: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func + " " + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
     StartText = 0;
@@ -67,7 +67,7 @@ void Logger::write(std::string text, int line, std::string codeFile, std::string
 
 void Logger::error(std::string text, int line, std::string codeFile, std::string func)
 {
-    text = "\033[0;31m" + this->currentDateTime() + " File: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func + " Error: "  + text + "\033[0m";
+    text = currentDateTime() + " ERROR \tFile: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func + " " + text ;
     file << text  << std::endl;
     std::cout << text << std::endl;
     StartText = 0;
@@ -75,7 +75,7 @@ void Logger::error(std::string text, int line, std::string codeFile, std::string
 
 void Logger::fatalError(std::string text, int line, std::string codeFile, std::string func)
 {
-    text = "\033[1;37;41m" + this->currentDateTime()  + " File: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func + " Fatal Error: " + text + "\033[0m";
+    text = currentDateTime()  + " FATAL \tFile: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func + " " + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
     StartText = 0;
@@ -83,7 +83,7 @@ void Logger::fatalError(std::string text, int line, std::string codeFile, std::s
 
 void Logger::warning(std::string text, int line, std::string codeFile, std::string func)
 {
-    text = "\033[1;33m" + this->currentDateTime() + " File: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func + " Warnin: " + text + "\033[0m";
+    text = currentDateTime() + " WARNING \tFile: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func + " " + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
     StartText = 0;
@@ -91,7 +91,7 @@ void Logger::warning(std::string text, int line, std::string codeFile, std::stri
 
 void Logger::info(std::string text, int line, std::string codeFile, std::string func)
 {
-    text = "\033[1;36m" + this->currentDateTime() + " File: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func + " Info: " + text + "\033[0m";
+    text = currentDateTime() + " INFO \tFile: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func  + " " + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
     StartText = 0;
@@ -101,7 +101,7 @@ bool Logger::setStartText(std::string text)
 {
     if(StartText)
     {
-        this->writeToFile(text);
+        writeToFile(text);
         StartText = 0;
         return 1;
     }
@@ -125,7 +125,7 @@ void Logger::writeToFile(std::string text)
 {
     if (m_showDate)
     {
-        text = this->currentDateTime + text + "\n";
+        text = currentDateTime + text + "\n";
     }
     QTextStream out(file);
     out.setCodec("UTF-8");
@@ -152,6 +152,6 @@ const std::string Logger::currentDateTime() {
 
 Logger::~Logger()
 {
-    this->writeToFile(endText);
+    writeToFile(endText);
     file.close();
 }
