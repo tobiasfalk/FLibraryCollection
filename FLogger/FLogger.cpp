@@ -1,4 +1,4 @@
-#include "FLogger.h"
+#include "FLogger.hp"
 
 using namespace FLogger;
 Logger::Logger(std::string logName, std::string path)

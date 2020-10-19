@@ -1,10 +1,10 @@
-#ifndef FLIBRARYCOLLECTION_H
-#define FLIBRARYCOLLECTION_H
+#ifndef FLIBRARYCOLLECTION_HPP
+#define FLIBRARYCOLLECTION_HPP
 //https://de.wikipedia.org/wiki/Versionsnummer
 
 #include <iostream>
 #include <vector>
-#include "Version.h"
+#include "Version.hpp"
 
 namespace FLibraryCollection
 {
@@ -29,4 +29,4 @@ std::string get_version();
 std::vector<int> get_version_int();
 }
 
-#endif // FLIBRARYCOLLECTION_H
+#endif // FLIBRARYCOLLECTION_HPP

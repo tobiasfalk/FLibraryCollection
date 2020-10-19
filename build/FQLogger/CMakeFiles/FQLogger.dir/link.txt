@@ -1,0 +1,1 @@
+/usr/bin/g++-9 -fPIC -g  -shared -Wl,-soname,libFQLogger.so -o libFQLogger.so CMakeFiles/FQLogger.dir/FQLogger_autogen/mocs_compilation.cpp.o CMakeFiles/FQLogger.dir/FQLogger.cpp.o  /usr/lib64/libQt5Core.so.5.12.7 

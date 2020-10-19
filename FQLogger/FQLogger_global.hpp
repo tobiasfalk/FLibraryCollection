@@ -1,5 +1,5 @@
-#ifndef FQLOGGER_GLOBAL_H
-#define FQLOGGER_GLOBAL_H
+#ifndef FQLOGGER_GLOBAL_HPP
+#define FQLOGGER_GLOBAL_HPP
 
 #include <QtCore/qglobal.h>
 
@@ -9,4 +9,4 @@
 #  define FQLOGGER_EXPORT Q_DECL_IMPORT
 #endif
 
-#endif // FQLOGGER_GLOBAL_H
+#endif // FQLOGGER_GLOBAL_HPP

@@ -1,0 +1,140 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				},
+				{
+					"build" : "FLogger",
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "FLogger",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "FQLogger",
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "FQLogger",
+					"targetIndexes" : 
+					[
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2
+					],
+					"name" : "FLibraryCollection",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Build_Doc::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Build_Doc-Debug-55fc464012f5744dfab3.json",
+					"name" : "Build_Doc",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Documentation::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Documentation-Debug-7271ffbe3baa34a05b55.json",
+					"name" : "Documentation",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "FLibraryCollection::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-FLibraryCollection-Debug-59b50415d8d4f4550fcd.json",
+					"name" : "FLibraryCollection",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "FLogger::@46626e5cac6b813e5c2d",
+					"jsonFile" : "target-FLogger-Debug-757153f150ae6b3d0d59.json",
+					"name" : "FLogger",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "FQLogger::@d0094b05455634d5036a",
+					"jsonFile" : "target-FQLogger-Debug-75f2c8f10d1f68d2f504.json",
+					"name" : "FQLogger",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "FQLogger_autogen::@d0094b05455634d5036a",
+					"jsonFile" : "target-FQLogger_autogen-Debug-a9d358df17a857b324ea.json",
+					"name" : "FQLogger_autogen",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/tobias/git/FLibraryCollection/build",
+		"source" : "/home/tobias/git/FLibraryCollection"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

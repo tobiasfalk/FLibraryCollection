@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(FLogger SHARED
   FLogger.cpp
-  FLogger.h
+  FLogger.hpp
 )
 
 

@@ -12,9 +12,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt5 COMPONENTS Core REQUIRED)
 
 add_library(FQLogger SHARED
-  FQLogger_global.h
+  FQLogger_global.hpp
   FQLogger.cpp
-  FQLogger.h
+  FQLogger.hpp
 )
 
 target_link_libraries(FQLogger PRIVATE Qt5::Core)

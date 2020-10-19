@@ -1,5 +1,7 @@
-#ifndef FLOGGER_H
-#define FLOGGER_H
+#ifndef FQLOGGER_HPP
+#define FQLOGGER_HPP
+
+#include "FQLogger_global.hpp"
 
 #include <iostream>
 #include <string>
@@ -11,10 +13,14 @@
 #include <chrono>
 #include <ctime>
 
+#include <QDateTime>
+#include <QObject>
+
 ///
-/// The FLogger namespace is where all the FLogger things are
+/// The FQLogger namespace is where all the FQLogger things are
+/// the differenz to FLogger curently is that you can set the date time formate and that it is an QObject
 ///
-namespace FLogger
+namespace FQLogger
 {
 
 ///
@@ -29,23 +35,35 @@ namespace FLogger
 /// cs_re:red:ERROR .*$<br>
 /// cs_re:white,red:FATAL .*$<br>
 ///
-class Logger
+class Logger : public QObject
 {
-
+    Q_OBJECT
 public:
+    ///
+    /// \brief Logger the constructor of the class
+    ///
+    explicit Logger(QObject *parent = nullptr);
+
     ///
     /// \brief Logger the constructor of the class
     /// \param logName the name of the log
     /// \param path the path wher the log is placed the standerd is ./
     ///
-    Logger(std::string logName, std::string path = "./");
+    explicit Logger(std::string logName, std::string path = "./", QObject *parent = nullptr);
+
     ///
-    /// \brief the FLogger destructor
+    /// \brief the FQLogger destructor
     ///
     /// it first writs the text that was setwith with setEndText and than closes the log file
     ///
     ~Logger();
 
+    ///
+    /// \brief start creats and opens the fiel and writes the start text<br>
+    /// after it was started the functions setDateFormate, setLogName, setPath
+    /// \return returns 1 when it was sucsesfull
+    ///
+    bool start();
 
     ///
     /// \brief write writes the text with date and time
@@ -115,17 +133,66 @@ public:
     void info(std::string text, int line, std::string codeFile, std::string func);
 
     ///
-    /// \brief setStartText writes the text without date and time
-    /// \param text the text that will be written
-    ///
-    bool setStartText(std::string text);
-    ///
     /// \brief setEndText writes the text with date and time in Cyan when the objekt is deleted and the file will be closed
     /// \param text the text that will be written the standart is "END"
     ///
     void setEndText(std::string text);
 
-    //friend std::ostream& operator<<(std::ostream& os, QString &text);
+    ///
+    /// \brief getDateFormate returns the date Time formate that is used<br>
+    /// the standart is Qt::DateFormat::ISODate
+    /// \return time as Qt::DateFormat(https://doc.qt.io/qt-5/qt.html#DateFormat-enum)
+    ///
+    Qt::DateFormat getDateFormate() const;
+
+    ///
+    /// \brief setDateFormate sets the date Time formate that is used<br>
+    /// the standart is Qt::DateFormat::ISODate
+    /// \param value as Qt::DateFormat(https://doc.qt.io/qt-5/qt.html#DateFormat-enum)
+    ///
+    void setDateFormate(const Qt::DateFormat &value);
+
+    ///
+    /// \brief getLogName returns the name of the logfile
+    /// \return std::string
+    ///
+    std::string getLogName() const;
+    ///
+    /// \brief setLogName sets the logfile name
+    /// \param value std::string name
+    ///
+    void setLogName(const std::string &value);
+
+    ///
+    /// \brief getPath returns the pathe to the file<br>
+    /// the standart is ""
+    /// \return std::string
+    ///
+    std::string getPath() const;
+    ///
+    /// \brief setPath sets the path to the file
+    /// \param value std::string
+    ///
+    void setPath(const std::string &value);
+
+
+    ///
+    /// \brief getStartText returns the start text
+    /// \return std::string
+    ///
+    std::string getStartText() const;
+
+    ///
+    /// \brief setStartText writes the text without date and time
+    /// \param text the text that will be written
+    ///
+    void setStartText(const std::string &value);
+
+    ///
+    /// \brief getStarted returns true when started was cald and it was sucsesfull
+    /// \return 1 when started
+    ///
+    bool getStarted() const;
 
 private:
     ///
@@ -149,12 +216,38 @@ private:
     const std::string currentDateTime();
 
     ///
-    /// \brief StartText
-    /// StartText is for control that the start text will only be writen ones or other Messages wher alredy writen
+    /// \brief StartText is the text at the beginnig of the logfile
     ///
-    bool StartText = 1;
+    std::string StartText = "";
+
+    ///
+    /// \brief Started
+    /// Started is for control that after the start some functions are disabled it is 1 when start was cald
+    ///
+    bool Started = 1;
+
+    ///
+    /// \brief dateFormate<br>
+    /// the standart is Qt::DateFormat::ISODate
+    /// dateFormate is the date time formate as Qt::DateFormat(https://doc.qt.io/qt-5/qt.html#DateFormat-enum) that is used and can be set by setDateFormat and looked up by getDateFormate
+    ///
+    Qt::DateFormat dateFormate = Qt::DateFormat::ISODate;
+
+    ///
+    /// \brief logName
+    /// logName is the name of the path <br>
+    /// the standart is "FQLogger"
+    ///
+    std::string logName = "FQLogger";
+
+    ///
+    /// \brief path
+    /// path is the location of the file <br>
+    /// the standart is ""
+    ///
+    std::string path = "";
 };
 
 }
 
-#endif // FLOGGER_H
+#endif // FQLOGGER_H

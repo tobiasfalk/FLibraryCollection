@@ -39,10 +39,10 @@ endif()
 
 add_library(FLibraryCollection SHARED
   FLibraryCollection.cpp
-  FLibraryCollection.h
+  FLibraryCollection.hpp
 )
 
-configure_file(Version.h.in Version.h)
+configure_file(Version.in.hpp Version.hpp)
 
 
 install(TARGETS FLibraryCollection DESTINATION lib)
