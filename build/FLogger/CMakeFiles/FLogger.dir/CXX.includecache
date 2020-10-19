@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tobias/git/FLibraryCollection/FLogger/FLogger.cpp
+FLogger.hpp
+/home/tobias/git/FLibraryCollection/FLogger/FLogger.hpp
+
+/home/tobias/git/FLibraryCollection/FLogger/FLogger.hpp
+iostream
+-
+string
+-
+fstream
+-
+stdlib.h
+-
+sys/time.h
+-
+vector
+-
+chrono
+-
+ctime
+-
+

@@ -1,4 +1,4 @@
-#include "FQLogger.h"
+#include "FQLogger.hpp"
 
 using namespace FQLogger;
 Logger::Logger(QObject *parent) : QObject(parent)

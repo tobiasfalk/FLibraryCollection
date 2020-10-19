@@ -46,8 +46,8 @@ configure_file(Version.in.hpp Version.hpp)
 
 
 install(TARGETS FLibraryCollection DESTINATION lib)
-install(FILES FLibraryCollection.h DESTINATION include/FLibraryCollection)
-install(FILES ${CMAKE_BINARY_DIR}/Version.h DESTINATION include/FLibraryCollection)
+install(FILES FLibraryCollection.hpp DESTINATION include/FLibraryCollection)
+install(FILES ${CMAKE_BINARY_DIR}/Version.hpp DESTINATION include/FLibraryCollection)
 
 target_compile_definitions(FLibraryCollection PRIVATE FLIBRARYCOLLECTION_LIBRARY)
 

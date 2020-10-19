@@ -1,0 +1,8 @@
+/usr/local/lib/libFLibraryCollection.so
+/usr/local/include/FLibraryCollection/FLibraryCollection.hpp
+/usr/local/include/FLibraryCollection/Version.hpp
+/usr/local/lib/libFLogger.so
+/usr/local/include/FLibraryCollection/FLogger/FLogger.hpp
+/usr/local/lib/libFQLogger.so
+/usr/local/include/FLibraryCollection/FQLogger/FQLogger.hpp
+/usr/local/include/FLibraryCollection/FQLogger/FQLogger_global.hpp

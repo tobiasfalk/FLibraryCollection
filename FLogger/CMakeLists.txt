@@ -15,4 +15,4 @@ add_library(FLogger SHARED
 target_compile_definitions(FLogger PRIVATE FLOGGER_LIBRARY)
 
 install(TARGETS FLogger DESTINATION lib)
-install(FILES FLogger.h DESTINATION include/FLibraryCollection/FLogger)
+install(FILES FLogger.hpp DESTINATION include/FLibraryCollection/FLogger)

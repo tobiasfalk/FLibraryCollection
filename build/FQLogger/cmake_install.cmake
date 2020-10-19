@@ -57,10 +57,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/FLibraryCollection/FQLogger" TYPE FILE FILES "/home/tobias/git/FLibraryCollection/FQLogger/FQLogger.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/FLibraryCollection/FQLogger" TYPE FILE FILES "/home/tobias/git/FLibraryCollection/FQLogger/FQLogger.hpp")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/FLibraryCollection/FQLogger" TYPE FILE FILES "/home/tobias/git/FLibraryCollection/FQLogger/FQLogger_global.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/FLibraryCollection/FQLogger" TYPE FILE FILES "/home/tobias/git/FLibraryCollection/FQLogger/FQLogger_global.hpp")
 endif()
 

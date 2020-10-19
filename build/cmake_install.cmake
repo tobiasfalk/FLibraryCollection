@@ -57,11 +57,11 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/FLibraryCollection" TYPE FILE FILES "/home/tobias/git/FLibraryCollection/FLibraryCollection.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/FLibraryCollection" TYPE FILE FILES "/home/tobias/git/FLibraryCollection/FLibraryCollection.hpp")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/FLibraryCollection" TYPE FILE FILES "/home/tobias/git/FLibraryCollection/build/Version.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/FLibraryCollection" TYPE FILE FILES "/home/tobias/git/FLibraryCollection/build/Version.hpp")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)

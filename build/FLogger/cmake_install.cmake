@@ -57,6 +57,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/FLibraryCollection/FLogger" TYPE FILE FILES "/home/tobias/git/FLibraryCollection/FLogger/FLogger.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/FLibraryCollection/FLogger" TYPE FILE FILES "/home/tobias/git/FLibraryCollection/FLogger/FLogger.hpp")
 endif()
 
