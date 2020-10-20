@@ -172,7 +172,9 @@ bool Logger::start()
         {
             std::cout << "Not Open" << std::endl;
             std::cout << fileName << std::endl;
+            return 0;
         }
-
+        return 1;
     }
+    return 0;
 }
