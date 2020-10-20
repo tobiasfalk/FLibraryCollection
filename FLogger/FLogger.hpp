@@ -164,7 +164,7 @@ public:
 
     ///
     /// \brief setStartText writes the text without date and time
-    /// \param text the text that will be written
+    /// \param &value the text that will be written
     ///
     void setStartText(const std::string &value);
 
