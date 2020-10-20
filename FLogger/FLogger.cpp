@@ -1,6 +1,6 @@
 #include "FLogger.hpp"
 
-using namespace FQLogger;
+using namespace FLogger;
 Logger::Logger()
 {
 }

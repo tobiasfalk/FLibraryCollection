@@ -12,10 +12,10 @@
 #include <ctime>
 
 ///
-/// The FQLogger namespace is where all the FQLogger things are
+/// The FLogger namespace is where all the FLogger things are
 /// the differenz to FLogger curently is that you can set the date time formate and that it is an QObject
 ///
-namespace FQLogger
+namespace FLogger
 {
 
 ///
@@ -46,7 +46,7 @@ public:
     explicit Logger(std::string logName, std::string path = "./");
 
     ///
-    /// \brief the FQLogger destructor
+    /// \brief the FLogger destructor
     ///
     /// it first writs the text that was setwith with setEndText and than closes the log file
     ///
@@ -209,9 +209,9 @@ private:
     ///
     /// \brief logName
     /// logName is the name of the path <br>
-    /// the standart is "FQLogger"
+    /// the standart is "FLogger"
     ///
-    std::string logName = "FQLogger";
+    std::string logName = "FLogger";
 
     ///
     /// \brief path
