@@ -240,7 +240,7 @@ private:
     /// \brief Started
     /// Started is for control that after the start some functions are disabled it is 1 when start was cald
     ///
-    bool Started = 1;
+    bool Started = false;
 
     ///
     /// \brief logName

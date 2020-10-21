@@ -104,7 +104,7 @@ bool Logger::getStarted() const
 
 void Logger::setStartText(const std::string &value)
 {
-    if(!Started)
+    if(Started)
     {
         StartText = value;
     }
@@ -122,7 +122,7 @@ std::string Logger::getPath() const
 
 void Logger::setPath(const std::string &value)
 {
-    if(!Started)
+    if(Started)
     {
         path = value;
     }
@@ -135,7 +135,7 @@ std::string Logger::getLogName() const
 
 void Logger::setLogName(const std::string &value)
 {
-    if(!Started)
+    if(Started)
     {
         logName = value;
     }
@@ -148,7 +148,7 @@ Qt::DateFormat Logger::getDateFormate() const
 
 void Logger::setDateFormate(const Qt::DateFormat &value)
 {
-    if(!Started)
+    if(Started)
     {
         dateFormate = value;
     }
@@ -174,6 +174,7 @@ bool Logger::start()
             std::cout << fileName << std::endl;
             return 0;
         }
+        file << StartText  << std::endl;
         return 1;
     }
     return 0;

@@ -5,8 +5,9 @@ The examples are:
 - \subpage example_2 "Example 2"<br>
   42
 
-\page example_1 Example 1(example_1.cpp):
-shows how the basic FLogger class is used
+\page example_1 Example 1:
+shows how the basic FLogger class is used<br>
+main.cpp
 \code{.cpp}
 @example1@
 \endcode

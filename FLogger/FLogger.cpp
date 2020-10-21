@@ -177,6 +177,7 @@ bool Logger::start()
             std::cout << fileName << std::endl;
             return 0;
         }
+        file << StartText  << std::endl;
         return 1;
     }
     return 0;
