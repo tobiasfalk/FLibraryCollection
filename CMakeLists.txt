@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(FLibraryCollection LANGUAGES CXX VERSION 1.1.4)
+project(FLibraryCollection LANGUAGES CXX VERSION 1.1.5)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 11)
@@ -9,6 +9,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_subdirectory(FLogger)
 add_subdirectory(FQLogger)
 #add_subdirectory(FHammingCode)
+
+#copys the examples to the build diretory
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/examples DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/examples)
+
+#reds the text of example_1.cpp and writs it to the ExapleList.md
+set(example1)
+file(READ ${CMAKE_CURRENT_SOURCE_DIR}/examples/example_1/main.cpp example1)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/doc/ExampleList.md.in ${CMAKE_CURRENT_BINARY_DIR}/doc/ExampleList.md)
 
 option(BUILD_DOC "Build documentation" ON)
 if(BUILD_DOC)
@@ -43,6 +51,8 @@ add_library(FLibraryCollection SHARED
 )
 
 configure_file(Version.in.hpp Version.hpp)
+
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/Logo/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/Logo)
 
 
 install(TARGETS FLibraryCollection DESTINATION lib)

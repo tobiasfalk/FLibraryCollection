@@ -1,0 +1,15 @@
+\page ExampleList Example List
+The examples are:
+- \subpage example_1 "Example 1"<br>
+  an simple example for the FLogger class
+- \subpage example_2 "Example 2"<br>
+  42
+
+\page example_1 Example 1(example_1.cpp):
+shows how the basic FLogger class is used
+\code{.cpp}
+@example1@
+\endcode
+
+\page example_2 Example 2:
+42
