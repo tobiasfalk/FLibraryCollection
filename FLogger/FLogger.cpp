@@ -109,6 +109,16 @@ bool Logger::getStarted() const
     return Started;
 }
 
+bool Logger::getTerminalOut() const
+{
+    return TerminalOut;
+}
+
+void Logger::setTerminalOut(const bool &value)
+{
+    TerminalOut = value;
+}
+
 void Logger::setStartText(const std::string &value)
 {
     if(!Started)

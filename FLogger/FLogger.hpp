@@ -134,12 +134,18 @@ public:
 
     ///
     /// \brief getLogName returns the name of the logfile
-    /// \return std::string
+    /// \return std::string<br>
+    /// 
+    /// \par See also:
+    /// setLogName()
     ///
     std::string getLogName() const;
     ///
     /// \brief setLogName sets the logfile name
     /// \param value std::string name
+    ///
+    /// \par See also:
+    /// getLogName()
     ///
     void setLogName(const std::string &value);
 
@@ -147,11 +153,17 @@ public:
     /// \brief getPath returns the pathe to the file<br>
     /// the standart is ""
     /// \return std::string
+    /// 
+    /// \par See also:
+    /// setPath()
     ///
     std::string getPath() const;
     ///
     /// \brief setPath sets the path to the file
     /// \param value std::string
+    ///
+    /// \par See also:
+    /// getPath()
     ///
     void setPath(const std::string &value);
 
@@ -159,6 +171,9 @@ public:
     ///
     /// \brief getStartText returns the start text
     /// \return std::string
+    /// 
+    /// \par See also:
+    /// setStartText()
     ///
     std::string getStartText() const;
 
@@ -166,13 +181,34 @@ public:
     /// \brief setStartText writes the text without date and time
     /// \param &value the text that will be written
     ///
+    /// \par See also:
+    /// getStartText()
+    ///
     void setStartText(const std::string &value);
 
     ///
     /// \brief getStarted returns true when started was cald and it was sucsesfull
     /// \return 1 when started
-    ///
+    /// 
     bool getStarted() const;
+
+    ///
+    /// \brief getTerminalOut returns true when The messegas should be display on to the std out
+    /// \return bool
+    /// 
+    /// \par See also:
+    /// setTerminalOut()
+    ///
+    bool getTerminalOut() const;
+
+    ///
+    /// \brief setTerminalOut sets if the messegas whould writ to the std out(true when it should)
+    /// \param &value 
+    ///
+    /// \par See also:
+    /// getTerminalOut()
+    ///
+    void setTerminalOut(const bool &value);
 
 private:
     ///
@@ -219,6 +255,13 @@ private:
     /// the standart is ""
     ///
     std::string path = "";
+
+    ///
+    /// \brief TerminalOut
+    /// TerminalOut controls that the text will only be writen to the std: out whe its true<br>
+    /// the standart is true
+    ///
+    bool TerminalOut = true;
 };
 
 }

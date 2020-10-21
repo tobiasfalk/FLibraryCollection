@@ -48,6 +48,7 @@ public:
     /// \brief Logger the constructor of the class
     /// \param logName the name of the log
     /// \param path the path wher the log is placed the standerd is ./
+    /// \param parent the Qt standart parent
     ///
     explicit Logger(std::string logName, std::string path = "./", QObject *parent = nullptr);
 
@@ -143,6 +144,9 @@ public:
     /// the standart is Qt::DateFormat::ISODate
     /// \return time as Qt::DateFormat(https://doc.qt.io/qt-5/qt.html#DateFormat-enum)
     ///
+    /// \par See also:
+    /// setDateFormate()
+    ///
     Qt::DateFormat getDateFormate() const;
 
     ///
@@ -150,16 +154,25 @@ public:
     /// the standart is Qt::DateFormat::ISODate
     /// \param value as Qt::DateFormat(https://doc.qt.io/qt-5/qt.html#DateFormat-enum)
     ///
+    /// \par See also:
+    /// getDateFormate()
+    ///
     void setDateFormate(const Qt::DateFormat &value);
 
     ///
     /// \brief getLogName returns the name of the logfile
     /// \return std::string
     ///
+    /// \par See also:
+    /// setLogName()
+    ///
     std::string getLogName() const;
     ///
     /// \brief setLogName sets the logfile name
     /// \param value std::string name
+    ///
+    /// \par See also:
+    /// getLogName()
     ///
     void setLogName(const std::string &value);
 
@@ -168,10 +181,16 @@ public:
     /// the standart is ""
     /// \return std::string
     ///
+    /// \par See also:
+    /// setPath()
+    ///
     std::string getPath() const;
     ///
     /// \brief setPath sets the path to the file
     /// \param value std::string
+    ///
+    /// \par See also:
+    /// getPath()
     ///
     void setPath(const std::string &value);
 
@@ -180,11 +199,17 @@ public:
     /// \brief getStartText returns the start text
     /// \return std::string
     ///
+    /// \par See also:
+    /// setStartText()
+    ///
     std::string getStartText() const;
 
     ///
     /// \brief setStartText writes the text without date and time
     /// \param &value the text that will be written
+    ///
+    /// \par See also:
+    /// getStartText()
     ///
     void setStartText(const std::string &value);
 

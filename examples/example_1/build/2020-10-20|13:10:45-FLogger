@@ -1,0 +1,11 @@
+2020-10-20|13:10:45 		normal write
+2020-10-20|13:10:45 INFO 	normal info
+2020-10-20|13:10:45 WARNING 	normal waring
+2020-10-20|13:10:45 ERROR 	normal error
+2020-10-20|13:10:45 FATAL 	normal fatal error
+2020-10-20|13:10:45 		File: /home/tobias/git/FLibraryCollection/examples/example_1/main.cpp Line: 26 Function: main place write
+2020-10-20|13:10:45 INFO 	File: /home/tobias/git/FLibraryCollection/examples/example_1/main.cpp Line: 27 Function: main place info
+2020-10-20|13:10:45 WARNING 	File: /home/tobias/git/FLibraryCollection/examples/example_1/main.cpp Line: 28 Function: main place waring
+2020-10-20|13:10:45 ERROR 	File: /home/tobias/git/FLibraryCollection/examples/example_1/main.cpp Line: 29 Function: main place error
+2020-10-20|13:10:45 FATAL 	File: /home/tobias/git/FLibraryCollection/examples/example_1/main.cpp Line: 30 Function: main place fatal error
+End Text
