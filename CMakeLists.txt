@@ -10,7 +10,10 @@ add_subdirectory(FLogger)
 add_subdirectory(FQLogger)
 #add_subdirectory(FHammingCode)
 
-add_subdirectory(examples)
+option(BUILD_EXAMPLES "Builds the examples" OFF)
+if(BUILD_EXAMPLES)
+    add_subdirectory(examples)
+endif()
 
 #reds the text of example_1.cpp and writs it to the ExapleList.md
 set(example1)
@@ -40,6 +43,7 @@ if(BUILD_DOC)
             README.md
             ./doc/Plans.md
             ./doc/LogoBig.md
+            ./doc/ExampleList.md.in
         )
 
 endif()

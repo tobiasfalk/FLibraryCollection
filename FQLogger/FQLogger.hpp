@@ -6,12 +6,6 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <stdlib.h>
-#include <sys/time.h>
-#include <vector>
-
-#include <chrono>
-#include <ctime>
 
 #include <QDateTime>
 #include <QObject>
