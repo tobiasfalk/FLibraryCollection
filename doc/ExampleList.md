@@ -10,6 +10,7 @@ shows how the basic FLogger class is used
         //Creating the class
         FLogger::Logger log;
         //creating the cass with log file name and path
+        //FLogger::Logger log("log_example_1", "logs/");
     
         //seting up all the parameters
         log.setLogName("log_example_1");    //Here the name of the Log file will be set the time of creation will be writen in front
