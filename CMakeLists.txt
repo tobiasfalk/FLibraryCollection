@@ -10,6 +10,7 @@ add_subdirectory(FLogger)
 add_subdirectory(FQLogger)
 #add_subdirectory(FHammingCode)
 
+#Build Examples
 option(BUILD_EXAMPLES "Builds the examples" OFF)
 if(BUILD_EXAMPLES)
     add_subdirectory(examples)
