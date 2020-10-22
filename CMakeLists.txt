@@ -10,12 +10,6 @@ add_subdirectory(FLogger)
 add_subdirectory(FQLogger)
 #add_subdirectory(FHammingCode)
 
-#Build Examples
-option(BUILD_EXAMPLES "Builds the examples" OFF)
-if(BUILD_EXAMPLES)
-    add_subdirectory(examples)
-endif()
-
 #reds the text of example_1.cpp and writs it to the ExapleList.md
 set(example1)
 file(READ ${CMAKE_CURRENT_SOURCE_DIR}/examples/example_1/main.cpp example1)
