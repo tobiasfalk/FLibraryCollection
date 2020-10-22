@@ -6,6 +6,11 @@
 #include <fstream>
 #include <sys/time.h>
 
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 #include <chrono>
 #include <ctime>
 
@@ -209,6 +214,16 @@ public:
     void setTerminalOut(const bool &value);
 
 private:
+    ///
+    /// \brief stringFormate formats the string<br>The maximal length of the finished sting is 65536 charectars
+    /// \param format ist he string to formate
+    /// \param args the argumenst that should be inported to the string
+    ///
+    /// \par See also:
+    /// 
+    ///
+    std::string stringFormate(std::string format, va_list args );
+
     ///
     /// \brief file the name of the file wher the log is written in
     ///

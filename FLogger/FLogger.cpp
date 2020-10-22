@@ -182,3 +182,13 @@ bool Logger::start()
     }
     return 0;
 }
+
+std::string Logger::stringFormate(std::string format, va_list args )
+{
+    char *cstr = new char[format.length() + 1];
+    strcpy(cstr, format.c_str());
+    char buffer[65536];
+    vsprintf (buffer, cstr, args);
+    delete [] cstr;
+    return buffer;
+}
