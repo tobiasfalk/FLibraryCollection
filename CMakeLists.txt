@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(FLibraryCollection LANGUAGES CXX VERSION 1.1.5)
+project(FLibraryCollection LANGUAGES CXX VERSION 1.1.6)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 11)
