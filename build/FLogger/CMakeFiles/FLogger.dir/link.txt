@@ -1,1 +1,0 @@
-/usr/bin/g++-9 -fPIC -g  -shared -Wl,-soname,libFLogger.so -o libFLogger.so CMakeFiles/FLogger.dir/FLogger.cpp.o 

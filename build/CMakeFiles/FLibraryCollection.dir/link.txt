@@ -1,1 +1,0 @@
-/usr/bin/g++-9 -fPIC -g  -shared -Wl,-soname,libFLibraryCollection.so -o libFLibraryCollection.so CMakeFiles/FLibraryCollection.dir/FLibraryCollection.cpp.o 
