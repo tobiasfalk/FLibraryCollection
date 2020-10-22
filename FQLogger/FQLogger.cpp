@@ -1,4 +1,5 @@
 #include "FQLogger.hpp"
+#include <cstdarg>
 
 using namespace FQLogger;
 Logger::Logger(QObject *parent) : QObject(parent)
@@ -11,72 +12,112 @@ Logger::Logger(std::string Log_Name, std::string Path, QObject *parent) : QObjec
     path = Path;
 }
 
-void Logger::write(std::string text)
+void Logger::write(std::string text, ...)
 {
+    va_list arg;
+    va_start(arg, text);
+    text = stringFormate(text, arg);
+    va_end(arg);
     text = currentDateTime() + " \t\t" + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
 }
 
-void Logger::error(std::string text)
+void Logger::error(std::string text, ...)
 {
+    va_list arg;
+    va_start(arg, text);
+    text = stringFormate(text, arg);
+    va_end(arg);
     text = currentDateTime() + " ERROR \t"  + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
 }
 
-void Logger::fatalError(std::string text)
+void Logger::fatalError(std::string text, ...)
 {
+    va_list arg;
+    va_start(arg, text);
+    text = stringFormate(text, arg);
+    va_end(arg);
     text = currentDateTime() + " FATAL \t" + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
 }
 
-void Logger::warning(std::string text)
+void Logger::warning(std::string text, ...)
 {
+    va_list arg;
+    va_start(arg, text);
+    text = stringFormate(text, arg);
+    va_end(arg);
     text = currentDateTime() + " WARNING \t" + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
 }
 
-void Logger::info(std::string text)
+void Logger::info(std::string text, ...)
 {
+    va_list arg;
+    va_start(arg, text);
+    text = stringFormate(text, arg);
+    va_end(arg);
     text = currentDateTime() + " INFO \t" + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
 }
 
-void Logger::write(std::string text, int line, std::string codeFile, std::string func)
+void Logger::write(int line, std::string codeFile, std::string func, std::string text, ...)
 {
+    va_list arg;
+    va_start(arg, text);
+    text = stringFormate(text, arg);
+    va_end(arg);
     text = currentDateTime() + " \t\tFile: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func + " " + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
 }
 
-void Logger::error(std::string text, int line, std::string codeFile, std::string func)
+void Logger::error(int line, std::string codeFile, std::string func, std::string text, ...)
 {
+    va_list arg;
+    va_start(arg, text);
+    text = stringFormate(text, arg);
+    va_end(arg);
     text = currentDateTime() + " ERROR \tFile: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func + " " + text ;
     file << text  << std::endl;
     std::cout << text << std::endl;
 }
 
-void Logger::fatalError(std::string text, int line, std::string codeFile, std::string func)
+void Logger::fatalError(int line, std::string codeFile, std::string func, std::string text, ...)
 {
+    va_list arg;
+    va_start(arg, text);
+    text = stringFormate(text, arg);
+    va_end(arg);
     text = currentDateTime()  + " FATAL \tFile: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func + " " + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
 }
 
-void Logger::warning(std::string text, int line, std::string codeFile, std::string func)
+void Logger::warning(int line, std::string codeFile, std::string func, std::string text, ...)
 {
+    va_list arg;
+    va_start(arg, text);
+    text = stringFormate(text, arg);
+    va_end(arg);
     text = currentDateTime() + " WARNING \tFile: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func + " " + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
     Started = 0;
 }
 
-void Logger::info(std::string text, int line, std::string codeFile, std::string func)
+void Logger::info(int line, std::string codeFile, std::string func, std::string text, ...)
 {
+    va_list arg;
+    va_start(arg, text);
+    text = stringFormate(text, arg);
+    va_end(arg);
     text = currentDateTime() + " INFO \tFile: " + codeFile + " Line: " + std::to_string(line) + " Function: " + func  + " " + text;
     file << text  << std::endl;
     std::cout << text << std::endl;
@@ -92,19 +133,24 @@ void Logger::writeToFile(std::string text)
     file << text  << std::endl;
 }
 
-const std::string Logger::currentDateTime() {
-    QDateTime time = QDateTime::currentDateTime();
-    return time.toString(dateFormate).toStdString();
-}
-
 bool Logger::getStarted() const
 {
     return Started;
 }
 
+bool Logger::getTerminalOut() const
+{
+    return TerminalOut;
+}
+
+void Logger::setTerminalOut(const bool &value)
+{
+    TerminalOut = value;
+}
+
 void Logger::setStartText(const std::string &value)
 {
-    if(Started)
+    if(!Started)
     {
         StartText = value;
     }
@@ -122,7 +168,7 @@ std::string Logger::getPath() const
 
 void Logger::setPath(const std::string &value)
 {
-    if(Started)
+    if(!Started)
     {
         path = value;
     }
@@ -135,25 +181,11 @@ std::string Logger::getLogName() const
 
 void Logger::setLogName(const std::string &value)
 {
-    if(Started)
+    if(!Started)
     {
         logName = value;
     }
 }
-
-Qt::DateFormat Logger::getDateFormate() const
-{
-    return dateFormate;
-}
-
-void Logger::setDateFormate(const Qt::DateFormat &value)
-{
-    if(Started)
-    {
-        dateFormate = value;
-    }
-}
-
 
 Logger::~Logger()
 {
@@ -178,4 +210,32 @@ bool Logger::start()
         return 1;
     }
     return 0;
+}
+
+std::string Logger::stringFormate(std::string format, va_list args )
+{
+    char *cstr = new char[format.length() + 1];
+    strcpy(cstr, format.c_str());
+    char buffer[65536];
+    vsprintf (buffer, cstr, args);
+    delete [] cstr;
+    return buffer;
+}
+
+Qt::DateFormat Logger::getDateFormate() const
+{
+    return dateFormate;
+}
+
+void Logger::setDateFormate(const Qt::DateFormat &value)
+{
+    if(Started)
+    {
+        dateFormate = value;
+    }
+}
+
+const std::string Logger::currentDateTime() {
+    QDateTime time = QDateTime::currentDateTime();
+    return time.toString(dateFormate).toStdString();
 }

@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tobias/git/FLC/FLibraryCollection/FLibraryCollection.cpp
+FLibraryCollection.hpp
+/home/tobias/git/FLC/FLibraryCollection/FLibraryCollection.hpp
+
+/home/tobias/git/FLC/FLibraryCollection/FLibraryCollection.hpp
+iostream
+-
+vector
+-
+Version.hpp
+/home/tobias/git/FLC/FLibraryCollection/Version.hpp
+
+Version.hpp
+
