@@ -11,8 +11,8 @@ add_subdirectory(FQLogger)
 #add_subdirectory(FHammingCode)
 
 #Build Examples
-option(BUILD_EXAMPLES "Builds the examples" OFF)
-if(BUILD_EXAMPLES)
+option(build_examples "Builds the examples" ON)
+if(EXAMPLES)
     add_subdirectory(examples)
 endif()
 
