@@ -24,11 +24,25 @@ int main(int argc, char *argv[])
     log.error("normal error");
     log.fatalError("normal fatal error");
 
+    //writing to the log in printf style
+    log.write("normal write %s", "in printf style");
+    log.info("normal info %s", "in printf style");
+    log.warning("normal waring %s", "in printf style");
+    log.error("normal error %s", "in printf style");
+    log.fatalError("normal fatal error %s", "in printf style");
+
     //writing to the log with error place
-    log.write("place write", __LINE__, __FILE__, __func__);
-    log.info("place info", __LINE__, __FILE__, __func__);
-    log.warning("place waring", __LINE__, __FILE__, __func__);
-    log.error("place error", __LINE__, __FILE__, __func__);
-    log.fatalError("place fatal error", __LINE__, __FILE__, __func__);
+    log.write(__LINE__, __FILE__, __func__, "place write");
+    log.info(__LINE__, __FILE__, __func__, "place info");
+    log.warning(__LINE__, __FILE__, __func__, "place waring");
+    log.error(__LINE__, __FILE__, __func__, "place error");
+    log.fatalError(__LINE__, __FILE__, __func__, "place fatal error");
+
+    //writing to the log with error place
+    log.write(__LINE__, __FILE__, __func__, "place write %s", "in printf style");
+    log.info(__LINE__, __FILE__, __func__, "place info %s", "in printf style");
+    log.warning(__LINE__, __FILE__, __func__, "place waring %s", "in printf style");
+    log.error(__LINE__, __FILE__, __func__, "place error %s", "in printf style");
+    log.fatalError(__LINE__, __FILE__, __func__, "place fatal error %s", "in printf style");
     return 0;
 }

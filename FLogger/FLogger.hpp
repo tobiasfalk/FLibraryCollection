@@ -6,6 +6,11 @@
 #include <fstream>
 #include <sys/time.h>
 
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 #include <chrono>
 #include <ctime>
 
@@ -58,71 +63,71 @@ public:
     bool start();
 
     ///
-    /// \brief write writes the text with date and time
+    /// \brief write writes the text with date and time<br>The maximal length of the finished sting is 65536 charectars
     /// \param text the text that will be written
     ///
-    void write(std::string text);
+    void write(std::string text, ...);
     ///
-    /// \brief error writes the text with date and time with ERROR after the time
+    /// \brief error writes the text with date and time with ERROR after the time<br>The maximal length of the finished sting is 65536 charectars
     /// \param text the text that will be written
     ///
-    void error(std::string text);
+    void error(std::string text, ...);
     ///
-    /// \brief fatalError writes the text with date and time with FATAL ERROR after the time
+    /// \brief fatalError writes the text with date and time with FATAL ERROR after the time<br>The maximal length of the finished sting is 65536 charectars
     /// \param text the text that will be written
     ///
-    void fatalError(std::string text);
+    void fatalError(std::string text, ...);
     ///
-    /// \brief warning writes the text with date and time with WARNING after the time
+    /// \brief warning writes the text with date and time with WARNING after the time<br>The maximal length of the finished sting is 65536 charectars
     /// \param text the text that will be written
     ///
-    void warning(std::string text);
+    void warning(std::string text, ...);
     ///
-    /// \brief info writes the text with date and time with INFO after the time
+    /// \brief info writes the text with date and time with INFO after the time<br>The maximal length of the finished sting is 65536 charectars
     /// \param text the text that will be written
     ///
-    void info(std::string text);
+    void info(std::string text, ...);
 
     ///
-    /// \brief write writes the text with date and time
-    /// \param text the text that will be written
+    /// \brief write writes the text with date and time<br>The maximal length of the finished sting is 65536 charectars
     /// \param line The line of the Message__LINE__
     /// \param codeFile The file from wher the messag is writen from __FILE__
     /// \param func The Function  from wher the messag is writen from __func__
-    ///
-    void write(std::string text, int line, std::string codeFile, std::string func);
-    ///
-    /// \brief error writes the text with date and time with ERROR after the time
     /// \param text the text that will be written
+    ///
+    void write(int line, std::string codeFile, std::string func, std::string text, ...);
+    ///
+    /// \brief error writes the text with date and time with ERROR after the time<br>The maximal length of the finished sting is 65536 charectars
     /// \param line The line of the Message__LINE__
     /// \param codeFile The file from wher the messag is writen from __FILE__
     /// \param func The Function  from wher the messag is writen from __func__
-    ///
-    void error(std::string text, int line, std::string codeFile, std::string func);
-    ///
-    /// \brief fatalError writes the text with date and time with FATAL ERROR after the time
     /// \param text the text that will be written
+    ///
+    void error(int line, std::string codeFile, std::string func, std::string text, ...);
+    ///
+    /// \brief fatalError writes the text with date and time with FATAL ERROR after the time<br>The maximal length of the finished sting is 65536 charectars
     /// \param line The line of the Message__LINE__
     /// \param codeFile The file from wher the messag is writen from __FILE__
     /// \param func The Function  from wher the messag is writen from __func__
-    ///
-    void fatalError(std::string text, int line, std::string codeFile, std::string func);
-    ///
-    /// \brief warning writes the text with date and time with WARNING after the time
     /// \param text the text that will be written
+    ///
+    void fatalError(int line, std::string codeFile, std::string func, std::string text, ...);
+    ///
+    /// \brief warning writes the text with date and time with WARNING after the time<br>The maximal length of the finished sting is 65536 charectars
     /// \param line The line of the Message__LINE__
     /// \param codeFile The file from wher the messag is writen from __FILE__
     /// \param func The Function  from wher the messag is writen from __func__
-    ///
-    void warning(std::string text, int line, std::string codeFile, std::string func);
-    ///
-    /// \brief info writes the text with date and time with INFO after the time
     /// \param text the text that will be written
+    ///
+    void warning(int line, std::string codeFile, std::string func, std::string text, ...);
+    ///
+    /// \brief info writes the text with date and time with INFO after the time<br>The maximal length of the finished sting is 65536 charectars
     /// \param line The line of the Message__LINE__
     /// \param codeFile The file from wher the messag is writen from __FILE__
     /// \param func The Function  from wher the messag is writen from __func__
+    /// \param text the text that will be written
     ///
-    void info(std::string text, int line, std::string codeFile, std::string func);
+    void info(int line, std::string codeFile, std::string func, std::string text, ...);
 
     ///
     /// \brief setEndText writes the text with date and time in Cyan when the objekt is deleted and the file will be closed
@@ -209,6 +214,16 @@ public:
     void setTerminalOut(const bool &value);
 
 private:
+    ///
+    /// \brief stringFormate formats the string<br>The maximal length of the finished sting is 65536 charectars
+    /// \param format ist he string to formate
+    /// \param args the argumenst that should be inported to the string
+    ///
+    /// \par See also:
+    /// 
+    ///
+    std::string stringFormate(std::string format, va_list args );
+
     ///
     /// \brief file the name of the file wher the log is written in
     ///
