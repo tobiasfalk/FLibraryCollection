@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_subdirectory(FLogger)
 add_subdirectory(FQLogger)
+add_subdirectory(FString)
 #add_subdirectory(FHammingCode)
 
 #reds the text of example_1.cpp and writs it to the ExapleList.md
