@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.13.1, 2020-10-21T20:07:24. -->
+<!-- Written by QtCreator 4.13.1, 2020-10-23T18:01:52. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -434,7 +434,7 @@
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory"></value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/silo0/C++Libs/FLC/build-FLibraryCollection-Qt_5_12_7-Release/examples/example_1</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default"></value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
