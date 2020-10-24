@@ -23,14 +23,13 @@ public:
     using std::string::basic_string;
 
     ///
-    /// \brief Logger the constructor of the class
+    /// \brief string the constructor of the class
     ///
     explicit string();
 
     ///
-    /// \brief the FLogger destructor
+    /// \brief the string destructor
     ///
-    /// it first writs the text that was setwith with setEndText and than closes the log file
     ///
     ~string();
 
