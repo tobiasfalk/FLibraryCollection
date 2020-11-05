@@ -16,6 +16,13 @@
 ///
 namespace FQLogger
 {
+///
+/// \brief The FLogger_e enum
+///
+enum class FLogger_e
+{
+    end
+};
 
 ///
 /// \brief The Logger class
@@ -231,7 +238,44 @@ public:
     ///
     void setDateFormate(const Qt::DateFormat &value);
 
+    ///
+    /// \brief operator << writes in to the log
+    /// \param in const char[]
+    ///
+    void operator<<(const char in[]);
+    ///
+    /// \brief operator << writes in to the log
+    /// \param in std::string
+    ///
+    void operator<<(std::string in);
+    ///
+    /// \brief operator << writes in to the log
+    /// \param in int
+    ///
+    void operator<<(int in);
+    ///
+    /// \brief operator << writes in to the log
+    /// \param in double
+    ///
+    void operator<<(double in);
+    ///
+    /// \brief operator << writes in to the log
+    /// \param in float
+    ///
+    void operator<<(float in);
+    ///
+    /// \brief operator << writes in to the log
+    /// \param in bool
+    ///
+    void operator<<(bool in);
+    ///
+    /// \brief operator << writes in to the log
+    /// \param in FLogger_e
+    ///
+    void operator<<(FLogger_e in);
+
 private:
+    bool line_started = false;
 
     ///
     /// \brief dateFormate<br>

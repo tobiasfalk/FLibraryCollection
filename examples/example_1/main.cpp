@@ -44,5 +44,18 @@ int main(int argc, char *argv[])
     log.warning(__LINE__, __FILE__, __func__, "place waring %s", "in printf style");
     log.error(__LINE__, __FILE__, __func__, "place error %s", "in printf style");
     log.fatalError(__LINE__, __FILE__, __func__, "place fatal error %s", "in printf style");
+
+    //writing to the log in c++ style
+    std::string a = "std string ";
+    log << a;
+    log << "const char[] ";
+    log << " int: ";
+    log << 23;
+    log << " floate(double): ";
+    log << 3.14;
+    log << " bool: ";
+    log << false;
+    log << " log entry end: ";
+    log << FLogger::FLogger_e::end;
     return 0;
 }

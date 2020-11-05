@@ -160,6 +160,113 @@ void Logger::setTerminalOut(const bool &value)
     TerminalOut = value;
 }
 
+void Logger::operator<<(const char in[])
+{
+    if(!line_started)
+    {
+        file << currentDateTime() << " ";
+        std::cout << currentDateTime() << " ";
+        line_started = true;
+    }
+
+    file << in;
+    std::cout << in;
+}
+
+void Logger::operator<<(std::string in)
+{
+    if(!line_started)
+    {
+        file << currentDateTime() << " ";
+        std::cout << currentDateTime() << " ";
+        line_started = true;
+    }
+
+    file << in;
+    std::cout << in;
+}
+
+void Logger::operator<<(int in)
+{
+    if(!line_started)
+    {
+        file << currentDateTime() << " ";
+        std::cout << currentDateTime() << " ";
+        line_started = true;
+    }
+
+    file << in;
+    std::cout << in;
+}
+
+void Logger::operator<<(double in)
+{
+    if(!line_started)
+    {
+        file << currentDateTime() << " ";
+        std::cout << currentDateTime() << " ";
+        line_started = true;
+    }
+
+    file << in;
+    std::cout << in;
+}
+
+void Logger::operator<<(float in)
+{
+    if(!line_started)
+    {
+        file << currentDateTime() << " ";
+        std::cout << currentDateTime() << " ";
+        line_started = true;
+    }
+
+    file << in;
+    std::cout << in;
+}
+
+void Logger::operator<<(bool in)
+{
+    if(!line_started)
+    {
+        file << currentDateTime() << " ";
+        std::cout << currentDateTime() << " ";
+        line_started = true;
+    }
+
+    if(in)
+    {
+        file << "true";
+        std::cout << "true";
+    }
+    else
+    {
+        file << "false";
+        std::cout << "true";
+
+    }
+}
+
+void Logger::operator<<(FLogger_e in)
+{
+    if(in == FLogger_e::end)
+    {
+        if(!line_started)
+        {
+            file << std::endl;
+            std::cout << std::endl;
+            line_started = false;
+        }
+        else if(line_started)
+        {
+
+            file << std::endl;
+            std::cout << std::endl;
+            line_started = false;
+        }
+    }
+}
+
 void Logger::setStartText(const std::string &value)
 {
     if(!Started)

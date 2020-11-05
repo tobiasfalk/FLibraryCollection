@@ -20,6 +20,13 @@
 ///
 namespace FLogger
 {
+///
+/// \brief The FLogger_e enum
+///
+enum class FLogger_e
+{
+    end
+};
 
 ///
 /// \brief The Logger class
@@ -28,6 +35,21 @@ namespace FLogger
 /// for Multitails the configuration:<br>
 /// #defaultcscheme:flogger<br>
 /// colorscheme:flogger<br>
+/// <br>
+/// cs_re:green: successful<br>
+/// cs_re:green: successfully<br>
+/// cs_re:green: SUCCESSFUl<br>
+/// cs_re:green: SUCCESSFUlLY<br>
+/// cs_re:green: Successful<br>
+/// cs_re:green: Successfully<br>
+/// <br>
+/// cs_re:red: unsuccessful<br>
+/// cs_re:red: unsuccessfully<br>
+/// cs_re:red: UNSUCCESSFUl<br>
+/// cs_re:red: UNSUCCESSFUlLY<br>
+/// cs_re:red: Unsuccessful<br>
+/// cs_re:red: Unsuccessfully<br>
+/// <br>
 /// cs_re:yellow:WARNING .*$<br>
 /// cs_re:green:INFO .*$<br>
 /// cs_re:red:ERROR .*$<br>
@@ -213,7 +235,45 @@ public:
     ///
     void setTerminalOut(const bool &value);
 
+    ///
+    /// \brief operator << writes in to the log
+    /// \param in const char[]
+    ///
+    void operator<<(const char in[]);
+    ///
+    /// \brief operator << writes in to the log
+    /// \param in std::string
+    ///
+    void operator<<(std::string in);
+    ///
+    /// \brief operator << writes in to the log
+    /// \param in int
+    ///
+    void operator<<(int in);
+    ///
+    /// \brief operator << writes in to the log
+    /// \param in double
+    ///
+    void operator<<(double in);
+    ///
+    /// \brief operator << writes in to the log
+    /// \param in float
+    ///
+    void operator<<(float in);
+    ///
+    /// \brief operator << writes in to the log
+    /// \param in bool
+    ///
+    void operator<<(bool in);
+    ///
+    /// \brief operator << writes in to the log
+    /// \param in FLogger_e
+    ///
+    void operator<<(FLogger_e in);
+
 private:
+    bool line_started = false;
+
     ///
     /// \brief stringFormate formats the string<br>The maximal length of the finished sting is 65536 charectars
     /// \param format ist he string to formate
