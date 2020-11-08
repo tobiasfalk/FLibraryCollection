@@ -14,34 +14,27 @@ add_subdirectory(FString)
 #reds the text of example_1.cpp and writs it to the ExapleList.md
 set(example1)
 file(READ ${CMAKE_CURRENT_SOURCE_DIR}/examples/example_1/main.cpp example1)
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/doc/ExampleList.md.in ${CMAKE_CURRENT_BINARY_DIR}/doc/ExampleList.md)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/doc_files/ExampleList.md.in ${CMAKE_CURRENT_BINARY_DIR}/doc_files/ExampleList.md)
 
-option(BUILD_DOC "Build documentation" ON)
-if(BUILD_DOC)
-    find_package(Doxygen)
-    if(NOT DOXYGEN_FOUND)
-        message(WARNING "Doxygen not found, unable to generate documentation")
-    else()
-        set(DOC_DEST_DIR ${CMAKE_BINARY_DIR} CACHE PATH "Path to the doxygen output")                      ## used in the doxyfile.in
-        set(DOC_INPUT_ROOT_DIRS ${CMAKE_HOME_DIRECTORY} CACHE PATH "Path from where to start to parse")    ## used in the doxyfile.in
-        set(DOC_EXCLUDE_PATTERNS_DIRS ${CMAKE_BINARY_DIR} CACHE STRING "Regex patterns exclusion")          ## used in the doxyfile.in
-        set(DOC_COMMON_IMG_PATH ${CMAKE_CURRENT_SOURCE_DIR} CACHE PATH "Path from which doxygen will be able to found referenced images")## used in the doxyfile.in
-        configure_file(Doxyfile.in ${CMAKE_BINARY_DIR}/doxyfile @ONLY)
-        add_custom_target(Build_Doc COMMAND ${DOXYGEN_EXECUTABLE} "${CMAKE_BINARY_DIR}/doxyfile"
-            WORKING_DIRECTORY ${CMAKE_HOME_DIRECTORY}
-            COMMENT "Building user's documentation into doxyDoc build dir..."
-        )
-    endif()
-
-    add_custom_target(Documentation
+find_package(Doxygen)
+if(NOT DOXYGEN_FOUND)
+    message(WARNING "Doxygen not found, unable to generate documentation")
+else()
+    set(DOC_DEST_DIR ${CMAKE_BINARY_DIR} CACHE PATH "Path to the doxygen output")                      ## used in the doxyfile.in
+    set(DOC_INPUT_ROOT_DIRS ${CMAKE_HOME_DIRECTORY} CACHE PATH "Path from where to start to parse")    ## used in the doxyfile.in
+    set(DOC_EXCLUDE_PATTERNS_DIRS ${CMAKE_BINARY_DIR} CACHE STRING "Regex patterns exclusion")          ## used in the doxyfile.in
+    set(DOC_COMMON_IMG_PATH ${CMAKE_CURRENT_SOURCE_DIR} CACHE PATH "Path from which doxygen will be able to found referenced images")## used in the doxyfile.in
+    configure_file(Doxyfile.in ${CMAKE_BINARY_DIR}/doxyfile @ONLY)
+    add_custom_target(doc COMMAND ${DOXYGEN_EXECUTABLE} "${CMAKE_BINARY_DIR}/doxyfile"
+        WORKING_DIRECTORY ${CMAKE_HOME_DIRECTORY}
+        COMMENT "Building user's documentation into doc build dir..."
         SOURCES
             Doxyfile.in
             README.md
-            ./doc/Plans.md
-            ./doc/LogoBig.md
-            ./doc/ExampleList.md.in
-        )
-
+            ./doc_files/Plans.md
+            ./doc_files/LogoBig.md
+            ./doc_files/ExampleList.md.in
+    )
 endif()
 
 add_library(FLibraryCollection SHARED

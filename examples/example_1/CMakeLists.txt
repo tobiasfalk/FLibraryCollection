@@ -8,4 +8,9 @@ add_executable(example_1
   main.cpp
 )
 
+add_custom_command(TARGET example_1
+    COMMAND mkdir "logs"
+    WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/"
+    )
+
 target_link_libraries(example_1 PRIVATE FLogger)

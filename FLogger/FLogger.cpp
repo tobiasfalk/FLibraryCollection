@@ -160,7 +160,7 @@ void Logger::setTerminalOut(const bool &value)
     TerminalOut = value;
 }
 
-void Logger::operator<<(const char in[])
+const char Logger::operator<<(const char in[])
 {
     if(!line_started)
     {
@@ -171,9 +171,10 @@ void Logger::operator<<(const char in[])
 
     file << in;
     std::cout << in;
+    return '.';
 }
 
-void Logger::operator<<(std::string in)
+const char Logger::operator<<(std::string in)
 {
     if(!line_started)
     {
@@ -184,9 +185,10 @@ void Logger::operator<<(std::string in)
 
     file << in;
     std::cout << in;
+    return '.';
 }
 
-void Logger::operator<<(int in)
+const char Logger::operator<<(int in)
 {
     if(!line_started)
     {
@@ -197,9 +199,10 @@ void Logger::operator<<(int in)
 
     file << in;
     std::cout << in;
+    return '.';
 }
 
-void Logger::operator<<(double in)
+const char Logger::operator<<(double in)
 {
     if(!line_started)
     {
@@ -210,9 +213,10 @@ void Logger::operator<<(double in)
 
     file << in;
     std::cout << in;
+    return '.';
 }
 
-void Logger::operator<<(float in)
+const char Logger::operator<<(float in)
 {
     if(!line_started)
     {
@@ -223,9 +227,10 @@ void Logger::operator<<(float in)
 
     file << in;
     std::cout << in;
+    return '.';
 }
 
-void Logger::operator<<(bool in)
+const char Logger::operator<<(bool in)
 {
     if(!line_started)
     {
@@ -245,9 +250,10 @@ void Logger::operator<<(bool in)
         std::cout << "true";
 
     }
+    return '.';
 }
 
-void Logger::operator<<(FLogger_e in)
+const char Logger::operator<<(FLogger_e in)
 {
     if(in == FLogger_e::end)
     {
@@ -265,6 +271,7 @@ void Logger::operator<<(FLogger_e in)
             line_started = false;
         }
     }
+    return '.';
 }
 
 void Logger::setStartText(const std::string &value)

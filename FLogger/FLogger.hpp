@@ -239,37 +239,37 @@ public:
     /// \brief operator << writes in to the log
     /// \param in const char[]
     ///
-    void operator<<(const char in[]);
+    const char operator<<(const char in[]);
     ///
     /// \brief operator << writes in to the log
     /// \param in std::string
     ///
-    void operator<<(std::string in);
+    const char operator<<(std::string in);
     ///
     /// \brief operator << writes in to the log
     /// \param in int
     ///
-    void operator<<(int in);
+    const char operator<<(int in);
     ///
     /// \brief operator << writes in to the log
     /// \param in double
     ///
-    void operator<<(double in);
+    const char operator<<(double in);
     ///
     /// \brief operator << writes in to the log
     /// \param in float
     ///
-    void operator<<(float in);
+    const char operator<<(float in);
     ///
     /// \brief operator << writes in to the log
     /// \param in bool
     ///
-    void operator<<(bool in);
+    const char operator<<(bool in);
     ///
     /// \brief operator << writes in to the log
     /// \param in FLogger_e
     ///
-    void operator<<(FLogger_e in);
+    const char operator<<(FLogger_e in);
 
 private:
     bool line_started = false;
